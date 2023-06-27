@@ -13,7 +13,7 @@ from lookup_whois.cli import LookupWhoisArgumentParser
 async def main():
     args = LookupWhoisArgumentParser().parse_args()
 
-    ip_addresses_input: Sequence[str] | None = args.ip_addresses + list(args.file) if args.file else []
+    ip_addresses_input: Sequence[str] | None = args.ip_addresses + (list(args.file) if args.file else [])
 
     if not ip_addresses_input:
         print('No IP addresses have been provided.', file=stderr)
